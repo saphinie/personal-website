@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="蔡少华 · 品牌策划人 × AI创作者 — 3D数字人驱动的个人主页，展示品牌战略、内容策划与AI创作能力。" />
+  <title>蔡少华 · 品牌策划人 × AI创作者</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script type="importmap">
+  { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+  </script>
+</head>
+<body>
+
+  <!-- 全局动态粒子背景 -->
+  <canvas id="bg"></canvas>
+
+  <!-- ============ 数字人 开场（你的照片全息化） ============ -->
+  <section id="intro" aria-label="数字人开场">
+    <canvas id="stage"></canvas>
+    <div class="intro-scan" aria-hidden="true"></div>
+
+    <div class="intro-ui">
+      <p class="intro-kicker"><span class="blink-dot"></span> AI DIGITAL TWIN · 全息在线</p>
+      <h1 class="intro-name">蔡少华</h1>
+      <p class="intro-tag">品牌策划人 <span>×</span> AI 创作者</p>
+
+      <button id="wakeBtn" class="intro-wake" type="button">
+        <span class="dot"></span> 点击唤醒数字人
+      </button>
+
+      <div id="speech" class="speech" hidden>
+        <div class="speech-avatar" aria-hidden="true">👋</div>
+        <div class="speech-body">
+          <p id="speechText" class="speech-text"></p>
+          <button id="enterBtn" class="enter-btn" type="button" hidden>进入主页 <span>→</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-foot">轻触屏幕任意处，与你的数字人打个招呼</div>
+  </section>
+
+  <!-- ============ 顶部导航 ============ -->
+  <header id="nav" class="nav">
+    <a class="nav-logo" href="#home" data-link>
+      <span class="logo-cn">蔡少华</span>
+      <span class="logo-en">CAI SHAOHUA · AI</span>
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#home" data-link>首页</a>
+      <a href="#console" data-link>数字台</a>
+      <a href="#about" data-link>关于</a>
+      <a href="#skills" data-link>能力</a>
+      <a href="#works" data-link>作品</a>
+      <a href="#exp" data-link>经历</a>
+      <a href="#contact" data-link>联系</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单" type="button">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="site">
+
+    <!-- 首页 -->
+    <section id="home" class="hero">
+      <div class="hero-inner">
+        <div class="hero-hud"><span class="dot"></span> SYSTEM ONLINE · AI CREATOR MODE · 深圳</div>
+        <p class="hero-kicker"><span class="idx">00</span> HELLO · 我是蔡少华</p>
+        <h2 class="hero-title">把<span class="grad">品牌策略</span><br/>渲染成可运行的产品</h2>
+        <p class="hero-type"><span id="typed"></span><span class="caret"></span></p>
+        <div class="hero-cta">
+          <a class="btn btn-solid" href="#works" data-link>看项目作品</a>
+          <a class="btn btn-ghost" href="#contact" data-link>联系我</a>
+        </div>
+        <ul class="hero-stats">
+          <li><b data-count="10">0</b><span>年+ 品牌策划</span></li>
+          <li><b data-count="3">0</b><span>类 AI 产物</span></li>
+          <li><b data-count="1">0</b><span>文学学会会员</span></li>
+        </ul>
+      </div>
+      <div class="hero-scroll" aria-hidden="true"><span></span>SCROLL</div>
+    </section>
+
+    <!-- 数字工作台 -->
+    <section id="console" class="section console">
+      <div class="sec-head"><span class="idx">01</span><h3>数字工作台</h3><p class="sec-en">AI CONSOLE</p></div>
+      <div class="terminal" id="terminal">
+        <div class="term-bar"><i></i><i></i><i></i><span>caishaohua@ai — zsh</span></div>
+        <pre class="term-body" id="termBody"></pre>
+      </div>
+    </section>
+
+    <!-- 关于 -->
+    <section id="about" class="section">
+      <div class="sec-head"><span class="idx">02</span><h3>关于我</h3><p class="sec-en">ABOUT</p></div>
+      <div class="about-grid">
+        <div class="about-photo">
+          <div class="photo-frame">
+            <img src="assets/images/portrait.jpg" alt="蔡少华" class="photo-img" />
+            <span class="photo-badge">AI CREATOR</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="lead">性格开朗活泼，喜欢突破自我，极富想象力与创造力。</p>
+          <p>10 年以上营销策划与文案经验，深圳市文学学会会员。擅长<strong>品牌战略规划、产品规划、整合品牌传播与推广</strong>，以及企业内部品牌培训。对市场有敏锐洞察，富有激情与创新意识，善于团队协作沟通。</p>
+          <p>2026 年起，我把 AI 工具真正用进工作流 —— 熟练使用各类 Agent（Codex、Harness、WorkBuddy 等），独立制作小程序、AI 短视频与个人网站，让策划不再止步于 PPT。</p>
+          <ul class="tags">
+            <li>品牌战略</li><li>整合传播</li><li>文案内容</li>
+            <li>AI 创作</li><li>短视频</li><li>小程序</li>
+            <li>企业培训</li><li>展厅策划</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 专业能力 -->
+    <section id="skills" class="section">
+      <div class="sec-head"><span class="idx">03</span><h3>专业能力</h3><p class="sec-en">CAPABILITIES</p></div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-ico">◈</div><h4>品牌战略规划</h4>
+          <p>基于市场诊断做整体品牌定位与价值体系搭建，从 0 到 1 构建品牌。</p>
+          <div class="bar"><i style="--w:95%"></i></div>
+        </article>
+        <article class="card">
+          <div class="card-ico">✎</div><h4>整合品牌传播</h4>
+          <p>广告、公关、促销、新媒体一体化传播方案，覆盖抖音 / 小红书 / 视频号。</p>
+          <div class="bar"><i style="--w:92%"></i></div>
+        </article>
+        <article class="card">
+          <div class="card-ico">❝</div><h4>文案与内容</h4>
+          <p>长文案、软文、杂志主编、宣传片脚本 —— 文字是十年里最稳的基本功。</p>
+          <div class="bar"><i style="--w:96%"></i></div>
+        </article>
+        <article class="card">
+          <div class="card-ico">⚡</div><h4>AI 创作</h4>
+          <p>用 Agent 制作小程序、AI 短视频、网站，把策划方案直接做成可运行的产品。</p>
+          <div class="bar"><i style="--w:88%"></i></div>
+        </article>
+        <article class="card">
+          <div class="card-ico">▣</div><h4>产品与展厅规划</h4>
+          <p>产品概念策划、企业画册、展厅与互动媒体策划，空间叙事也能落地。</p>
+          <div class="bar"><i style="--w:85%"></i></div>
+        </article>
+        <article class="card">
+          <div class="card-ico">◎</div><h4>企业内部品牌培训</h4>
+          <p>把品牌方法论沉淀为可培训、可复用的内部能力，让团队一起讲同一个故事。</p>
+          <div class="bar"><i style="--w:82%"></i></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 项目作品 -->
+    <section id="works" class="section">
+      <div class="sec-head"><span class="idx">04</span><h3>项目作品</h3><p class="sec-en">SELECTED WORKS</p></div>
+      <div class="works">
+        <article class="work">
+          <div class="work-top"><span class="work-year">2013–14</span><span class="work-cat">地产 · 整合推广</span></div>
+          <h4>惠州万林湖 · 金榜山</h4>
+          <p>年度整合推广全案策划文案：主题广告创意、基础物料文案与传播节奏。</p>
+        </article>
+        <article class="work">
+          <div class="work-top"><span class="work-year">2011</span><span class="work-cat">文旅 · 节庆策划</span></div>
+          <h4>鄂尔多斯国际马文化节</h4>
+          <p>全程策划：实地调研、调研报告、前期宣传与节中活动及后期影响力方案。</p>
+        </article>
+        <article class="work">
+          <div class="work-top"><span class="work-year">2010–11</span><span class="work-cat">旅游 · 品牌全案</span></div>
+          <h4>江苏天目湖旅游品牌</h4>
+          <p>旅游品牌策略、形象系统、传播工具、节庆系统与服务 / 商品形象规划设计。</p>
+        </article>
+        <article class="work">
+          <div class="work-top"><span class="work-year">2012–14</span><span class="work-cat">纸媒 · 杂志主编</span></div>
+          <h4>《深业会》《皇庭礼治》《星河人》</h4>
+          <p>连续两年担任企业内刊执行主编，独立完成整本杂志的规划、专题与撰稿。</p>
+        </article>
+        <article class="work">
+          <div class="work-top"><span class="work-year">2018–23</span><span class="work-cat">企业 · 品牌部</span></div>
+          <h4>广田方特 · 品牌推广</h4>
+          <p>公众号运营、销售工具策划、企业短视频 / MV / 宣传片及各类奖项荣誉申报。</p>
+        </article>
+        <article class="work">
+          <div class="work-top"><span class="work-year">2023</span><span class="work-cat">展厅 · 互动媒体</span></div>
+          <h4>香港展厅互动媒体策划</h4>
+          <p>尤科（深圳）媒体策划：香港某展厅互动媒体策划、组织与跨方沟通。</p>
+        </article>
+        <article class="work">
+          <div class="work-top"><span class="work-year">2024</span><span class="work-cat">内容 · 网文 / 策划</span></div>
+          <h4>网文创作 · 13万字完结</h4>
+          <p>与番茄平台签约，首部长篇 13 万字已完结，第二本连载中；兼具展厅与广告策划。</p>
+        </article>
+        <article class="work">
+          <div class="work-top"><span class="work-year">2026–</span><span class="work-cat">AI · 创作者</span></div>
+          <h4>小程序 / AI短视频 / 网站</h4>
+          <p>用 Agent 工作流独立产出小程序、AI 短视频与个人网站，策划即产品。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 经历 -->
+    <section id="exp" class="section">
+      <div class="sec-head"><span class="idx">05</span><h3>经历</h3><p class="sec-en">EXPERIENCE</p></div>
+      <ol class="timeline">
+        <li><span class="t-when">2026.01 – 至今</span><div class="t-body"><h4>AI 创作者</h4><p>独立使用 Agent 制作小程序、AI 短视频、网站等数字产物。</p></div></li>
+        <li><span class="t-when">2025.03 – 2025.12</span><div class="t-body"><h4>深圳市天禽医疗科技 · 内容策划</h4><p>商业计划书撰写；抖音 / 小红书 / 视频号 / 头条内容策划；公众号软文。</p></div></li>
+        <li><span class="t-when">2024.04 – 2024.10</span><div class="t-body"><h4>网文作者 / 展厅策划 / 广告策划</h4><p>番茄平台签约长篇创作；同期入职展厅策划公司。</p></div></li>
+        <li><span class="t-when">2023.10 – 2024.03</span><div class="t-body"><h4>尤科（深圳）媒体策划 · 项目策划经理</h4><p>香港展厅互动媒体策划、组织沟通（合作项目）。</p></div></li>
+        <li><span class="t-when">2018.06 – 2023.04</span><div class="t-body"><h4>广田方特科建集团 · 品牌部经理</h4><p>品牌推广、自媒体运营、销售工具与宣传片策划、奖项申报。</p></div></li>
+        <li><span class="t-when">2017.08 – 2018.04</span><div class="t-body"><h4>华润励致洋行（华润置地）· 市场部经理</h4><p>品牌推广、宣传物料、行业媒体推广。</p></div></li>
+        <li><span class="t-when">2015.01 – 2017.02</span><div class="t-body"><h4>深圳市华智美意广告 · 品牌策划经理</h4><p>品牌整合推广、形象策划、展会设计执行。</p></div></li>
+        <li><span class="t-when">2012.03 – 2014.07</span><div class="t-body"><h4>香港卡邦兄弟机构 · 策划部经理</h4><p>品牌整合推广、高端活动策划、企业内刊 / 杂志主编。</p></div></li>
+        <li><span class="t-when">2010.10 – 2012.02</span><div class="t-body"><h4>深圳思成广告 · 策划</h4><p>全案策划：营销诊断、品牌与产品规划、整合传播与活动营销。</p></div></li>
+      </ol>
+    </section>
+
+    <!-- 联系 -->
+    <section id="contact" class="section section-contact">
+      <div class="sec-head"><span class="idx">06</span><h3>联系我</h3><p class="sec-en">CONTACT</p></div>
+      <div class="contact-grid">
+        <div class="contact-lead">
+          <h4>一起把想法做成产品。</h4>
+          <p>无论是品牌定位、内容策划，还是想用 AI 快速做出小程序 / 短视频 / 网站 —— 欢迎来找我聊聊。</p>
+          <a class="btn btn-solid" href="assets/downloads/蔡少华-个人简历.docx" download>下载简历 ↓</a>
+        </div>
+        <ul class="contact-list">
+          <li><span>邮箱</span><a href="mailto:119599366@qq.com">119599366@qq.com</a></li>
+          <li><span>电话</span><a href="tel:13424191719">134 2419 1719</a></li>
+          <li><span>公众号</span><b>人间句读</b></li>
+          <li><span>坐标</span><b>广东 · 深圳</b></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 蔡少华</span>
+    <span class="foot-en">Brand Strategist × AI Creator · Rendered with AI</span>
+  </footer>
+
+  <button id="mascot" class="mascot" type="button" aria-label="唤醒数字人" hidden>
+    <img src="assets/images/portrait.jpg" alt="蔡少华" class="mascot-img" />
+  </button>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

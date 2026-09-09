@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>蔡少华 · 数字人主页 · 分享海报</title>
+<style>
+  :root{
+    --bg1:#070b12; --bg2:#0c1626; --cyan:#35d6ff; --cyan2:#7af0ff;
+    --ink:#eaf6ff; --muted:#8aa0b8; --line:rgba(53,214,255,.28);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ height:100%; }
+  body{
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(53,214,255,.18), transparent 60%),
+      radial-gradient(900px 500px at 0% 110%, rgba(122,240,255,.12), transparent 55%),
+      linear-gradient(160deg,var(--bg1),var(--bg2));
+    color:var(--ink);
+    min-height:100%;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:24px 16px 36px; gap:18px;
+  }
+  /* ===== 海报本体 ===== */
+  #poster{
+    position:relative; width:360px; height:720px;
+    background:
+      linear-gradient(180deg, rgba(10,16,26,.9), rgba(7,11,18,.96));
+    border:1px solid var(--line);
+    border-radius:22px; overflow:hidden;
+    box-shadow:0 0 0 1px rgba(53,214,255,.06), 0 30px 80px rgba(0,0,0,.55), 0 0 60px rgba(53,214,255,.12);
+  }
+  /* 网格底纹 */
+  #poster::before{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+    background-image:
+      linear-gradient(rgba(53,214,255,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(53,214,255,.06) 1px, transparent 1px);
+    background-size:26px 26px;
+    mask-image:radial-gradient(120% 80% at 50% 0%, #000 40%, transparent 100%);
+  }
+  /* 顶部光晕 */
+  #poster .glow{
+    position:absolute; top:-120px; left:50%; transform:translateX(-50%);
+    width:340px; height:340px; border-radius:50%;
+    background:radial-gradient(circle, rgba(53,214,255,.35), transparent 65%);
+    filter:blur(8px); pointer-events:none;
+  }
+  .p-inner{ position:relative; z-index:2; height:100%; display:flex; flex-direction:column;
+    align-items:center; padding:30px 26px 26px; }
+  .tag{
+    font-family:ui-monospace,"SFMono-Regular",Menlo,monospace;
+    font-size:11px; letter-spacing:.32em; color:var(--cyan2);
+    border:1px solid var(--line); border-radius:999px; padding:6px 14px;
+    background:rgba(53,214,255,.06); backdrop-filter:blur(4px);
+  }
+  .avatar{
+    margin-top:22px; width:96px; height:96px; border-radius:50%;
+    object-fit:cover; border:2px solid rgba(53,214,255,.5);
+    box-shadow:0 0 0 6px rgba(53,214,255,.08), 0 0 30px rgba(53,214,255,.35);
+  }
+  .name{ margin-top:16px; font-size:30px; font-weight:800; letter-spacing:.04em;
+    text-shadow:0 0 18px rgba(53,214,255,.35); }
+  .role{ margin-top:8px; font-size:13.5px; color:var(--cyan2); letter-spacing:.06em; }
+  .divider{ width:60%; height:1px; margin:16px 0 14px;
+    background:linear-gradient(90deg, transparent, var(--line), transparent); }
+  .lead{ font-size:13px; color:var(--muted); text-align:center; line-height:1.7; max-width:260px; }
+  .lead b{ color:var(--ink); font-weight:600; }
+  /* 二维码区 */
+  .qr-wrap{
+    margin-top:auto; margin-bottom:14px;
+    background:rgba(255,255,255,.96); border-radius:18px; padding:14px;
+    border:1px solid rgba(53,214,255,.5);
+    box-shadow:0 0 26px rgba(53,214,255,.25);
+  }
+  #qrcode{ display:block; width:200px; height:200px; border-radius:8px; }
+  .qr-tip{ margin-top:10px; font-size:12px; color:var(--cyan2); letter-spacing:.05em; text-align:center; }
+  .url{
+    font-family:ui-monospace,Menlo,monospace; font-size:11px; color:var(--muted);
+    word-break:break-all; text-align:center; max-width:300px; line-height:1.5;
+  }
+  .foot{ margin-top:6px; font-size:10.5px; color:rgba(138,160,184,.7);
+    letter-spacing:.18em; font-family:ui-monospace,monospace; }
+  /* ===== 操作按钮 ===== */
+  .actions{ display:flex; gap:12px; }
+  .btn{
+    appearance:none; border:1px solid var(--line); cursor:pointer;
+    background:rgba(53,214,255,.1); color:var(--cyan2);
+    font-size:14px; padding:11px 20px; border-radius:12px;
+    backdrop-filter:blur(4px); transition:.18s; font-family:inherit;
+  }
+  .btn:hover{ background:rgba(53,214,255,.2); transform:translateY(-1px); }
+  .btn.primary{ background:linear-gradient(135deg,var(--cyan),#1aa6c8); color:#04121a; border-color:transparent; font-weight:700; }
+  .hint{ font-size:11.5px; color:var(--muted); }
+</style>
+</head>
+<body>
+  <div id="poster">
+    <div class="glow"></div>
+    <div class="p-inner">
+      <span class="tag">AI CREATOR · 数字人主页</span>
+      <img class="avatar" src="assets/images/portrait.jpg" alt="蔡少华" />
+      <div class="name">蔡少华</div>
+      <div class="role">品牌策划人 × AI 创作者</div>
+      <div class="divider"></div>
+      <p class="lead">扫码进入我的 <b>3D 数字人主页</b><br/>看看我把品牌策划与 AI 创作<br/>做成了什么样子</p>
+
+      <div class="qr-wrap">
+        <img id="qrcode" src="assets/images/qr.png" alt="扫码访问主页" />
+        <div class="qr-tip">长按或扫码访问</div>
+      </div>
+      <div class="url" id="urlText">https://3000-2eb607cf5bba4d958f6c44ba1be9319b.e2b.bj4.sandbox.cloudstudio.club/</div>
+      <div class="foot">CAISH SHAOHUA · PORTFOLIO 2026</div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn primary" id="saveBtn">保存海报图片</button>
+    <button class="btn" id="copyBtn">复制链接</button>
+  </div>
+  <p class="hint">提示：手机上打开本页，点「保存海报图片」即可存为图片分享到微信。</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    const SHARE_URL = 'https://3000-2eb607cf5bba4d958f6c44ba1be9319b.e2b.bj4.sandbox.cloudstudio.club/';
+
+    // 保存为图片
+    document.getElementById('saveBtn').addEventListener('click', () => {
+      const node = document.getElementById('poster');
+      html2canvas(node, { backgroundColor: null, scale: 3, useCORS: true, logging: false })
+        .then((canvas) => {
+          const a = document.createElement('a');
+          a.download = '蔡少华-数字人主页-分享海报.png';
+          a.href = canvas.toDataURL('image/png');
+          a.click();
+        });
+    });
+
+    // 复制链接
+    document.getElementById('copyBtn').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(SHARE_URL); } catch (e) {}
+      const b = document.getElementById('copyBtn');
+      const t = b.textContent; b.textContent = '已复制 ✓';
+      setTimeout(() => (b.textContent = t), 1400);
+    });
+  </script>
+</body>
+</html>
