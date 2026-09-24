@@ -113,7 +113,7 @@ function buildHolo() {
   const mat = new THREE.MeshBasicMaterial({ color: 0xbfe6ff, transparent: true, opacity: 0.92, side: THREE.DoubleSide });
   const plane = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 2.0), mat);
   g.add(plane);
-  loadAvatarTexture('assets/images/avatar.svg', (tex) => {
+  loadAvatarTexture('assets/images/avatar.png', (tex) => {
     mat.map = tex; mat.color.set(0xffffff); mat.needsUpdate = true;
   });
 
