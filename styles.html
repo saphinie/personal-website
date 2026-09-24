@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>10 款个人主页风格 · 风格货架 | 个人主页定制</title>
+<style>
+  :root{
+    --bg:#070b14; --panel:rgba(255,255,255,.04); --line:rgba(120,200,255,.18);
+    --cyan:#35d6ff; --ink:#eaf2ff; --sub:#9fb2c8; --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(1100px 600px at 75% -10%,rgba(53,214,255,.12),transparent 60%),var(--bg);
+    color:var(--ink);font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.7;padding:0 0 80px;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  header.hero{padding:74px 20px 30px;text-align:center;max-width:820px;margin:0 auto}
+  header.hero .tag{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--cyan)}
+  header.hero h1{font-size:clamp(30px,6vw,50px);margin:12px 0 10px;font-weight:800;
+    background:linear-gradient(120deg,#fff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+  header.hero p{color:var(--sub);font-size:15px}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-size:14px;font-weight:600;cursor:pointer;transition:.2s}
+  .btn-solid{color:#04121a;background:linear-gradient(120deg,var(--cyan),#4d7cff);box-shadow:0 0 24px rgba(53,214,255,.35)}
+  .btn-ghost{color:var(--ink);border:1px solid var(--line);background:rgba(255,255,255,.04)}
+  .btn:hover{transform:translateY(-2px)}
+
+  .note{max-width:820px;margin:18px auto 0;background:rgba(53,214,255,.06);border:1px solid var(--line);
+    border-radius:14px;padding:14px 18px;color:var(--sub);font-size:13.5px}
+  .note b{color:var(--cyan)}
+
+  h2.sec{font-family:var(--mono);font-size:14px;letter-spacing:.16em;color:var(--cyan);
+    text-transform:uppercase;margin:50px 0 18px;border-left:3px solid var(--cyan);padding-left:12px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+
+  .card{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel);
+    box-shadow:0 18px 50px -30px rgba(0,0,0,.8);transition:transform .25s,border-color .25s,box-shadow .25s}
+  .card:hover{transform:translateY(-6px);border-color:var(--cyan);box-shadow:0 0 30px rgba(53,214,255,.2)}
+
+  /* 预览窗 */
+  .pv{position:relative;height:150px;overflow:hidden;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+  .pv .pv-tag{position:absolute;top:10px;left:12px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;opacity:.7}
+  .pv .pv-name{font-size:22px;font-weight:800}
+
+  /* 01 科技数字人 */
+  .s01{background:radial-gradient(circle at 50% 40%,#0c2138,#06101e)}
+  .s01 .ring{width:78px;height:78px;border-radius:50%;border:2px solid #35d6ff;box-shadow:0 0 22px #35d6ff;position:relative}
+  .s01 .ring::after{content:"";position:absolute;inset:-10px;border-radius:50%;border:1px dashed rgba(53,214,255,.5)}
+  .s01 .pv-name{position:absolute;bottom:14px;color:#bfe6ff;font-size:15px;letter-spacing:.2em}
+
+  /* 02 极简作品集 */
+  .s02{background:#f4f6fa}
+  .s02 .grid2{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:78%}
+  .s02 .grid2 i{aspect-ratio:1;background:#d4dae6;border-radius:6px;display:block}
+  .s02 .grid2 i:first-child{background:#35d6ff}
+
+  /* 03 杂志编辑 */
+  .s03{background:#f3ead7}
+  .s03 .pv-name{font-family:"Songti SC",Georgia,serif;color:#2a2417;font-size:46px}
+  .s03 .ln{position:absolute;bottom:18px;width:60%;height:4px;background:#b9a87f;border-radius:2px}
+  .s03 .ln:nth-child(3){width:42%;bottom:10px;opacity:.6}
+
+  /* 04 暗黑炫酷 */
+  .s04{background:#05060a}
+  .s04 .pv-name{font-family:var(--mono);font-size:30px;font-weight:800;
+    background:linear-gradient(90deg,#ff5d8f,#7a5cff);-webkit-background-clip:text;background-clip:text;color:transparent;
+    text-shadow:2px 0 #ff5d8f,-2px 0 #35d6ff;letter-spacing:.05em}
+
+  /* 05 清新手作 */
+  .s05{background:#fdeee2}
+  .s05 .blob{width:60px;height:60px;border-radius:46% 54% 58% 42%/52% 44% 56% 48%;background:#ffb38a;box-shadow:18px 14px 0 #ffd9a8,-20px 10px 0 #ffc9b0}
+  .s05 .pv-name{position:absolute;bottom:14px;color:#cf8a5e;font-size:15px}
+
+  /* 06 商务精英 */
+  .s06{background:#0b1f3a}
+  .s06 .pv-name{font-family:Georgia,serif;color:#e8c878;font-size:30px;letter-spacing:.18em}
+  .s06 .ln{position:absolute;bottom:20px;width:54%;height:2px;background:linear-gradient(90deg,#e8c878,transparent)}
+
+  /* 07 国风意境 */
+  .s07{background:#efe7d4}
+  .s07 .ink{width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#2b2b2b,#111);box-shadow:0 0 0 6px rgba(0,0,0,.06)}
+  .s07 .seal{position:absolute;right:18px;bottom:16px;width:26px;height:26px;background:#b3372f;border-radius:5px;color:#fff;
+    font-size:13px;display:flex;align-items:center;justify-content:center;font-family:"Songti SC",serif}
+
+  /* 08 数据仪表盘 */
+  .s08{background:#0a1320}
+  .s08 .bars{display:flex;align-items:flex-end;gap:7px;height:64px}
+  .s08 .bars i{width:11px;background:linear-gradient(#35d6ff,#1a6f8a);border-radius:3px 3px 0 0;display:block}
+  .s08 .pv-name{position:absolute;top:12px;right:14px;color:#5dffa0;font-family:var(--mono);font-size:13px}
+
+  /* 09 复古胶片 */
+  .s09{background:#cdb189}
+  .s09 .film{width:84px;height:54px;border:6px solid #2a2118;border-radius:3px;background:
+    repeating-linear-gradient(90deg,#3a2e20 0 6px,#5a4631 6px 12px);position:relative}
+  .s09 .film::before,.s09 .film::after{content:"";position:absolute;top:-6px;bottom:-6px;width:6px;background:#2a2118;
+    background-image:radial-gradient(#cdb189 40%,transparent 42%);background-size:6px 10px}
+  .s09 .film::before{left:-6px}.s09 .film::after{right:-6px}
+  .s09 .pv-name{position:absolute;bottom:10px;color:#3a2e20;font-size:13px;letter-spacing:.1em}
+
+  /* 10 动态插画 */
+  .s10{background:#10243a}
+  .s10 .d{display:flex;gap:8px}
+  .s10 .d i{width:30px;height:30px;border-radius:50%;display:block;animation:float 2.4s ease-in-out infinite}
+  .s10 .d i:nth-child(1){background:#ff5d8f}
+  .s10 .d i:nth-child(2){background:#ffd166;animation-delay:.3s}
+  .s10 .d i:nth-child(3){background:#35d6ff;animation-delay:.6s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+  .s10 .pv-name{position:absolute;bottom:12px;color:#cfe9ff;font-size:14px}
+
+  .meta{padding:16px 18px}
+  .meta .nm{font-size:16px;font-weight:700;display:flex;align-items:baseline;gap:8px}
+  .meta .nm .no{font-family:var(--mono);font-size:12px;color:var(--cyan)}
+  .meta .who{font-size:13px;color:var(--sub);margin:6px 0 12px}
+  .meta .pick{display:inline-block;font-family:var(--mono);font-size:11px;border:1px solid var(--line);
+    border-radius:999px;padding:4px 10px;color:var(--cyan);background:rgba(53,214,255,.06);margin:0 4px 6px 0}
+  .meta .order{display:block;margin-top:10px;text-align:center;font-size:13px;font-weight:600;
+    padding:9px;border-radius:10px;border:1px solid var(--cyan);color:var(--cyan);transition:.2s}
+  .meta .order:hover{background:rgba(53,214,255,.12)}
+
+  footer{max-width:820px;margin:60px auto 0;text-align:center;color:var(--sub);font-size:12.5px;font-family:var(--mono);padding:0 20px}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="tag">PERSONAL HOMEPAGE STUDIO · STYLE SHELF</div>
+    <h1>10 款个人主页风格 · 风格货架</h1>
+    <p>从一份简历到一支数字人 —— 选一款属于你的调性，我们帮你落地成站。</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="mailto:119599366@qq.com?subject=个人主页定制咨询">联系我定制 →</a>
+      <a class="btn btn-ghost" href="demo/index.html">看同款数字人示例样品</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="note">
+      <b>怎么用这本货架：</b>每一款都是一套「主题包」，复用同一套底层骨架，只换色板 / 字体 / 动效。
+      下方为纯视觉预览；点「选这款 · 联系我」即按该风格为你定制。示例样品站（顾行之）演示了 STYLE 01 数字人风格的最终效果。
+    </div>
+
+    <h2 class="sec">// 10 STYLES</h2>
+    <div class="grid">
+
+      <!-- 01 -->
+      <div class="card">
+        <div class="pv s01"><span class="pv-tag">STYLE 01</span><div class="ring"></div><span class="pv-name">AI TWIN</span></div>
+        <div class="meta">
+          <div class="nm"><span class="no">01</span> 科技数字人</div>
+          <div class="who">适用：AI 创作者 / 开发者 / 创业者</div>
+          <span class="pick">3D 全息</span><span class="pick">霓虹青</span><span class="pick">终端打字</span>
+          <a class="order" href="mailto:119599366@qq.com?subject=想定制 STYLE 01 科技数字人">选这款 · 联系我</a>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="card">
+        <div class="pv s02"><span class="pv-tag" style="color:#8a93a6">STYLE 02</span><div class="grid2"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="meta">
+          <div class="nm"><span class="no">02</span> 极简作品集</div>
+          <div class="who">适用：设计师 / 摄影师 / 插画师</div>
+          <span class="pick">大留白</span><span class="pick">网格</span><span class="pick">最快交付</span>
+          <a class="order" href="mailto:119599366@qq.com?subject=想定制 STYLE 02 极简作品集">选这款 · 联系我</a>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="card">
+        <div class="pv s03"><span class="pv-tag" style="color:#9a8a5e">STYLE 03</span><span class="pv-name">Aa</span><span class="ln"></span><span class="ln"></span></div>
+        <div class="meta">
+          <div class="nm"><span class="no">03</span> 杂志编辑</div>
+          <div class="who">适用：作家 / 记者 / 主编</div>
+          <span class="pick">衬线</span><span class="pick">分栏</span><span class="pick">叙事感</span>
+          <a class="order" href="mailto:119599366@qq.com?subject=想定制 STYLE 03 杂志编辑">选这款 · 联系我</a>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="card">
+        <div class="pv s04"><span class="pv-tag" style="color:#ff7da6">STYLE 04</span><span class="pv-name">GLITCH</span></div>
+        <div class="meta">
+          <div class="nm"><span class="no">04</span> 暗黑炫酷</div>
+          <div class="who">适用：音乐人 / DJ / 潮玩主理人</div>
+          <span class="pick">故障感</span><span class="pick">品红紫</span><span class="pick">视差</span>
+          <a class="order" href="mailto:119599366@qq.com?subject=想定制 STYLE 04 暗黑炫酷">选这款 · 联系我</a>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="card">
+        <div class="pv s05"><span class="pv-tag" style="color:#cf8a5e">STYLE 05</span><div class="blob"></div><span class="pv-name">soft</span></div>
+        <div class="meta">
+          <div class="nm"><span class="no">05</span> 清新手作</div>
+          <div class="who">适用：手作匠人 / 花艺 / 母婴博主</div>
+          <span class="pick">奶彩</span><span class="pick">圆角</span><span class="pick">治愈</span>
+          <a class="order" href="mailto:119599366@qq.com?subject=想定制 STYLE 05 清新手作">选这款 · 联系我</a>
+        </div>
+      </div>
+
+      <!-- 06 -->
+      <div class="card">
+        <div class="pv s06"><span class="pv-tag" style="color:#e8c878">STYLE 06</span><span class="pv-name">EXEC</span><span class="ln"></span></div>
+        <div class="meta">
+          <div class="nm"><span class="no">06</span> 商务精英</div>
+          <div class="who">适用：咨询师 / 高管 / 律师</div>
+          <span class="pick">藏青金</span><span class="pick">信任感</span><span class="pick">高客单</span>
+          <a class="order" href="mailto:119599366@qq.com?subject=想定制 STYLE 06 商务精英">选这款 · 联系我</a>
+        </div>
+      </div>
+
+      <!-- 07 -->
+      <div class="card">
+        <div class="pv s07"><span class="pv-tag" style="color:#9a8a5e">STYLE 07</span><div class="ink"></div><div class="seal">印</div></div>
+        <div class="meta">
+          <div class="nm"><span class="no">07</span> 国风意境</div>
+          <div class="who">适用：书法家 / 非遗传承 / 茶人</div>
+          <span class="pick">水墨</span><span class="pick">留白</span><span class="pick">朱印</span>
+          <a class="order" href="mailto:119599366@qq.com?subject=想定制 STYLE 07 国风意境">选这款 · 联系我</a>
+        </div>
+      </div>
+
+      <!-- 08 -->
+      <div class="card">
+        <div class="pv s08"><span class="pv-tag" style="color:#5dffa0">STYLE 08</span><span class="pv-name">+128%</span><div class="bars"><i style="height:30%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:78%"></i><i style="height:64%"></i><i style="height:90%"></i></div></div>
+        <div class="meta">
+          <div class="nm"><span class="no">08</span> 数据仪表盘</div>
+          <div class="who">适用：分析师 / 开发者 / 操盘手</div>
+          <span class="pick">图表</span><span class="pick">计数</span><span class="pick">硬核</span>
+          <a class="order" href="mailto:119599366@qq.com?subject=想定制 STYLE 08 数据仪表盘">选这款 · 联系我</a>
+        </div>
+      </div>
+
+      <!-- 09 -->
+      <div class="card">
+        <div class="pv s09"><span class="pv-tag" style="color:#5a4631">STYLE 09</span><div class="film"></div><span class="pv-name">FILM</span></div>
+        <div class="meta">
+          <div class="nm"><span class="no">09</span> 复古胶片</div>
+          <div class="who">适用：导演 / 摄影 / vintage 爱好者</div>
+          <span class="pick">暖棕</span><span class="pick">颗粒</span><span class="pick">横滚</span>
+          <a class="order" href="mailto:119599366@qq.com?subject=想定制 STYLE 09 复古胶片">选这款 · 联系我</a>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="card">
+        <div class="pv s10"><span class="pv-tag" style="color:#cfe9ff">STYLE 10</span><div class="d"><i></i><i></i><i></i></div><span class="pv-name">PLAY</span></div>
+        <div class="meta">
+          <div class="nm"><span class="no">10</span> 动态插画</div>
+          <div class="who">适用：插画师 / 动画 / 儿童品牌</div>
+          <span class="pick">多色</span><span class="pick">Lottie</span><span class="pick">活泼</span>
+          <a class="order" href="mailto:119599366@qq.com?subject=想定制 STYLE 10 动态插画">选这款 · 联系我</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    个人主页定制 · 风格货架 · 由 WorkBuddy 整理 · 2026<br/>
+    示例样品站人物「顾行之」及本页风格均为演示，不代表真实个人与机构。
+  </footer>
+</body>
+</html>

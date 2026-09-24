@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>个人网站开发路径 · 蔡少华</title>
+<style>
+  :root{
+    --bg:#0a0e14; --panel:rgba(20,28,40,.72); --line:rgba(53,214,255,.22);
+    --cyan:#35d6ff; --cyan2:#14b8c4; --txt:#e8eef6; --sub:#9fb2c8; --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(1200px 600px at 70% -10%,rgba(53,214,255,.10),transparent 60%),var(--bg);
+    color:var(--txt);font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.7;padding:48px 20px 80px}
+  .wrap{max-width:880px;margin:0 auto}
+  header{border:1px solid var(--line);border-radius:18px;padding:32px 30px;background:var(--panel);
+    box-shadow:0 0 50px rgba(53,214,255,.08);margin-bottom:36px}
+  header .tag{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--cyan)}
+  header h1{font-size:30px;margin:8px 0 6px;letter-spacing:.02em}
+  header p{color:var(--sub);font-size:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .chip{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:999px;
+    padding:5px 13px;color:var(--cyan);background:rgba(53,214,255,.06)}
+  h2{font-size:15px;letter-spacing:.16em;color:var(--cyan);font-family:var(--mono);
+    margin:42px 0 16px;text-transform:uppercase}
+  .timeline{position:relative;padding-left:28px}
+  .timeline::before{content:'';position:absolute;left:7px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(var(--cyan),rgba(53,214,255,.15))}
+  .node{position:relative;margin-bottom:22px}
+  .node::before{content:'';position:absolute;left:-27px;top:6px;width:14px;height:14px;border-radius:50%;
+    background:var(--cyan);box-shadow:0 0 14px var(--cyan);border:2px solid var(--bg)}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .card .ph{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+  .card .ph .no{font-family:var(--mono);color:var(--cyan);font-size:13px}
+  .card .ph .tt{font-size:17px;font-weight:600}
+  .card .goal{color:var(--sub);font-size:13px;margin-bottom:10px}
+  .card ul{list-style:none;font-size:14px}
+  .card li{padding-left:16px;position:relative;margin:5px 0;color:#d6e2ef}
+  .card li::before{content:'▹';position:absolute;left:0;color:var(--cyan2)}
+  .card .tech{margin-top:10px;font-family:var(--mono);font-size:12px;color:var(--cyan2);
+    border-top:1px dashed var(--line);padding-top:8px}
+  .pitfalls{background:rgba(255,93,143,.06);border:1px solid rgba(255,93,143,.3);border-radius:14px;padding:18px 20px}
+  .pitfalls h3{color:#ff7da6;font-size:14px;letter-spacing:.05em;margin-bottom:10px}
+  .pitfalls .p{font-size:14px;margin:8px 0}
+  .pitfalls .p b{color:#ffb3c9}
+  .pitfalls .p span{color:var(--sub)}
+  footer{margin-top:42px;text-align:center;color:var(--sub);font-size:12px;font-family:var(--mono)}
+  a{color:var(--cyan)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="tag">DEV PATH · PERSONAL WEBSITE</div>
+    <h1>个人网站开发路径</h1>
+    <p>从一份简历到带 3D 数字人的科技风主页 · 蔡少华（品牌策划人 × AI 创作者）</p>
+    <div class="meta">
+      <span class="chip">纯静态站点 HTML/CSS/JS</span>
+      <span class="chip">Three.js 3D 数字人</span>
+      <span class="chip">GitHub Pages 托管</span>
+      <span class="chip">2026-09-09 起</span>
+    </div>
+  </header>
+
+  <h2>Overview / 总览</h2>
+  <div class="card">
+    <ul>
+      <li>目标：把简历内容做成<strong>可对外展示的个人能力主页</strong>，要有记忆点</li>
+      <li>记忆点：<strong>3D 数字人开场</strong> + 深色霓虹科技风 + 参考 yucolab 的极简菜单</li>
+      <li>技术栈：原生 HTML/CSS/JS，Three.js（CDN importmap），Node 本地预览</li>
+      <li>最终成果：<a href="https://saphinie.github.io/personal-website/" target="_blank">https://saphinie.github.io/personal-website/</a>（永久链接）</li>
+    </ul>
+  </div>
+
+  <h2>Phases / 开发阶段</h2>
+  <div class="timeline">
+
+    <div class="node"><div class="card">
+      <div class="ph"><span class="no">01</span><span class="tt">需求与素材</span></div>
+      <div class="goal">明确目标，从简历里提取可展示内容</div>
+      <ul>
+        <li>读取简历 docx，提炼：品牌策划 10+ 年经历、AI 创作者新身份、项目作品清单</li>
+        <li>参考站点：yucolab 顶部菜单（首页/关于/能力/作品/经历/联系）</li>
+        <li>用户补充：提供真实照片，要求数字人「像自己」</li>
+      </ul>
+      <div class="tech">产出：内容骨架 + 菜单结构 + portrait.jpg</div>
+    </div></div>
+
+    <div class="node"><div class="card">
+      <div class="ph"><span class="no">02</span><span class="tt">设计决策</span></div>
+      <div class="goal">定下视觉与交互方向，避免返工</div>
+      <ul>
+        <li>视觉风格：初选「浅色极简」→ 后按反馈升级为「深色霓虹科技风」</li>
+        <li>数字人互动：文字气泡 + 打字机自我介绍（稳定、加载快）</li>
+        <li>形象方案：先用程序生成动漫形象，后改为「用户照片全息化」</li>
+      </ul>
+      <div class="tech">产出：配色（青 #35d6ff）、版式、交互脚本</div>
+    </div></div>
+
+    <div class="node"><div class="card">
+      <div class="ph"><span class="no">03</span><span class="tt">核心开发（首版）</span></div>
+      <div class="goal">搭出可运行的网站骨架</div>
+      <ul>
+        <li>index.html：数字人开场 overlay + 吸附导航 + 6 个板块 + 浮动吉祥物</li>
+        <li>style.css：浅色极简 + 毛玻璃卡片 + 滚动揭示动画</li>
+        <li>main.js：Three.js 程序生成动漫数字人（挥手、打字机、进入主页）</li>
+        <li>server.js：Node 静态服务器（端口 4173）本地预览</li>
+      </ul>
+      <div class="tech">技术：Three.js procedural mesh、IntersectionObserver</div>
+    </div></div>
+
+    <div class="node"><div class="card">
+      <div class="ph"><span class="no">04</span><span class="tt">形象与内容落地</span></div>
+      <div class="goal">把用户真实信息放进去</div>
+      <ul>
+        <li>「关于我」头像：从占位字换成本人照片</li>
+        <li>右下角浮动按钮：换成照片头像，随时唤出数字人</li>
+        <li>简历下载：docx 放入 assets/downloads 并提供按钮</li>
+      </ul>
+      <div class="tech">涉及文件：portrait.jpg、index.html 头像区</div>
+    </div></div>
+
+    <div class="node"><div class="card">
+      <div class="ph"><span class="no">05</span><span class="tt">科技感升级（大改）</span></div>
+      <div class="goal">按反馈「动态内容太少、不够数字」做增强</div>
+      <ul>
+        <li>整体换深色霓虹主题，常驻粒子星座背景（鼠标连线）</li>
+        <li>新增「数字工作台」仿终端打字板块（滚动自动打印命令）</li>
+        <li>首页数字计数动画、技能条滚动填充、卡片 3D 倾斜</li>
+        <li>开场数字人改为照片全息化（扫描线 + 光环 + 粒子 + 扫描光带）</li>
+      </ul>
+      <div class="tech">重写 index.html / style.css / main.js</div>
+    </div></div>
+
+    <div class="node"><div class="card">
+      <div class="ph"><span class="no">06</span><span class="tt">部署与分享</span></div>
+      <div class="goal">让别人能访问，并能扫码分享</div>
+      <ul>
+        <li>CloudStudio 临时部署（教训：链接会失效，不适合长期）</li>
+        <li>制作分享海报 poster.html + 二维码（本地生成 qr.png，不依赖 CDN）</li>
+        <li>改用 <strong>GitHub Pages</strong> 正式托管，得到永久链接</li>
+        <li>用永久链接重新生成二维码并更新海报</li>
+      </ul>
+      <div class="tech">部署：GitHub REST API 建仓/推送/开 Pages；二维码本地生成</div>
+    </div></div>
+
+  </div>
+
+  <h2>Pitfalls / 踩过的坑与解决</h2>
+  <div class="pitfalls">
+    <h3>⚠ 关键问题记录</h3>
+    <div class="p"><b>二维码库 CDN 404</b> <span>→ qrcode@1.5.3 的 CDN 路径失效，改用本地 Node 生成 qr.png，不再依赖运行时 CDN。</span></div>
+    <div class="p"><b>海报保存被截断</b> <span>→ html2canvas 对 CSS aspect-ratio 支持差，克隆高度算错；改为显式 height:720px 解决。</span></div>
+    <div class="p"><b>扫码显示「链接失效」</b> <span>→ CloudStudio 沙箱短链过期；改用 GitHub Pages 永久链接，二维码重做。</span></div>
+    <div class="p"><b>GitHub 令牌暴露</b> <span>→ 用户在聊天里粘贴 classic PAT；已用完即清，需去 Settings→Tokens 手动吊销。</span></div>
+    <div class="p"><b>git push 连接重置</b> <span>→ 网络抖动，重试 + 用 token 内嵌 URL 推送成功，事后把 remote 改回无令牌地址。</span></div>
+  </div>
+
+  <h2>Next / 可扩展方向</h2>
+  <div class="card">
+    <ul>
+      <li>换更正式的头像 / 给作品区补图</li>
+      <li>绑定自有域名（如 caishaohua.com，GitHub Pages 支持）</li>
+      <li>数字人加语音念白（TTS）</li>
+      <li>首页 Hero 常驻小型全息头像</li>
+      <li>接入访问数据埋点，看谁来看、看多久</li>
+    </ul>
+  </div>
+
+  <footer>个人网站开发路径 · 由 WorkBuddy 整理 · 2026</footer>
+</div>
+</body>
+</html>

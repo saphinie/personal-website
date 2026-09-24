@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>个人主页定制业务 · 开发策划方案</title>
+<style>
+  :root{
+    --bg:#0a0e14; --panel:rgba(20,28,40,.72); --line:rgba(53,214,255,.22);
+    --cyan:#35d6ff; --cyan2:#14b8c4; --txt:#e8eef6; --sub:#9fb2c8;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:radial-gradient(1200px 600px at 70% -10%,rgba(53,214,255,.10),transparent 60%),var(--bg);
+    color:var(--txt);font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.75;padding:48px 20px 90px}
+  .wrap{max-width:940px;margin:0 auto}
+  header{border:1px solid var(--line);border-radius:18px;padding:34px 32px;background:var(--panel);
+    box-shadow:0 0 50px rgba(53,214,255,.08);margin-bottom:34px}
+  header .tag{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--cyan)}
+  header h1{font-size:30px;margin:8px 0 8px}
+  header p{color:var(--sub);font-size:14px}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .chip{font-family:var(--mono);font-size:12px;border:1px solid var(--line);border-radius:999px;
+    padding:5px 13px;color:var(--cyan);background:rgba(53,214,255,.06)}
+  h2{font-size:15px;letter-spacing:.16em;color:var(--cyan);font-family:var(--mono);
+    margin:44px 0 16px;border-left:3px solid var(--cyan);padding-left:12px}
+  h3{font-size:16px;margin:16px 0 8px;color:#fff}
+  p.lead{color:var(--sub);font-size:14px;margin-bottom:10px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+  table{width:100%;border-collapse:collapse;margin:6px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
+  th{background:rgba(53,214,255,.08);color:var(--cyan);font-family:var(--mono);font-size:12px;letter-spacing:.05em}
+  td b{color:#fff}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media(max-width:720px){.grid2,.grid3{grid-template-columns:1fr}}
+  .style-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--panel)}
+  .style-card .no{font-family:var(--mono);color:var(--cyan);font-size:13px}
+  .style-card .nm{font-size:17px;font-weight:700;margin:4px 0 6px}
+  .style-card .who{font-size:13px;color:var(--sub);margin-bottom:8px}
+  .style-card .kv{font-size:13px;margin:4px 0}
+  .style-card .kv span{color:var(--cyan2)}
+  .pill{display:inline-block;font-family:var(--mono);font-size:11px;border:1px solid var(--line);
+    border-radius:999px;padding:3px 9px;color:var(--cyan);background:rgba(53,214,255,.05);margin:2px 3px 0 0}
+  ol,ul{margin:8px 0 8px 22px}
+  li{margin:6px 0;font-size:14px;color:#d6e2ef}
+  .warn{background:rgba(255,93,143,.06);border:1px solid rgba(255,93,143,.3);border-radius:14px;padding:16px 20px}
+  .warn h3{color:#ff7da6}
+  .warn li{color:#f0d6df}
+  .step{display:flex;gap:14px;margin:12px 0;align-items:flex-start}
+  .step .b{flex:0 0 34px;height:34px;border-radius:50%;background:var(--cyan);color:#06141c;
+    font-family:var(--mono);font-weight:700;display:flex;align-items:center;justify-content:center}
+  .step .t b{color:#fff}
+  .step .t div{font-size:13.5px;color:#d6e2ef}
+  footer{margin-top:46px;text-align:center;color:var(--sub);font-size:12px;font-family:var(--mono)}
+  a{color:var(--cyan)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="tag">BUSINESS PLAN · PERSONAL HOMEPAGE STUDIO</div>
+    <h1>个人主页定制业务 · 开发策划方案</h1>
+    <p>从「帮蔡少华做一个」到「做十款风格卖给人」——一套可复制的定制主页生产线</p>
+    <div class="meta">
+      <span class="chip">技术栈 原生 HTML/CSS/JS</span>
+      <span class="chip">Three.js 3D 数字人</span>
+      <span class="chip">GitHub Pages 托管</span>
+      <span class="chip">10 套风格资产库</span>
+      <span class="chip">2026 Q4 启动</span>
+    </div>
+  </header>
+
+  <h2>0 / 业务定位与机会</h2>
+  <div class="card">
+    <p class="lead">你刚完成自己的个人主页（3D 数字人 + 科技风 + 永久托管），这条链路本身就是产品。目标不是「再做一个网站」，而是把这条链路<strong>标准化成可复制的服务</strong>，向有个人品牌需求的人售卖。</p>
+    <ul>
+      <li><b>核心卖点</b>：不是模板套站，而是「有记忆点的个人主页」——3D 数字人、动态科技感、极简编辑风等差异化视觉。</li>
+      <li><b>市场空白</b>：多数个人主页要么是简历 PDF，要么是千篇一律的模板站；「带 3D/动态交互 + 审美在线」的供给稀缺，尤其下沉到非技术人群（作家、设计师、咨询师）。</li>
+      <li><b>已验证资产</b>：你自己的上线站（https://saphinie.github.io/personal-website/）就是活样例 + 销售物料。</li>
+      <li><b>一句话定位</b>：<em>「为每个人打造一个有记忆点的个人主页」</em> —— 个人品牌设计师 × AI 创作者 的人设天然契合。</li>
+    </ul>
+  </div>
+
+  <h2>1 / 目标客户画像</h2>
+  <table>
+    <tr><th>客群</th><th>典型职业</th><th>核心诉求</th><th>预算敏感度</th><th>推荐风格</th></tr>
+    <tr><td><b>创作者</b></td><td>作家/插画师/独立音乐人</td><td>审美、调性、作品陈列</td><td>中（愿为颜值付费）</td><td>02 极简 / 05 手作 / 10 插画</td></tr>
+    <tr><td><b>专业人士</b></td><td>咨询师/律师/设计师</td><td>信任感、专业背书</td><td>中高</td><td>06 商务 / 03 杂志</td></tr>
+    <tr><td><b>科技/AI 人</b></td><td>开发者/AI 创作者/创业者</td><td>前沿感、炫酷</td><td>中</td><td>01 数字人 / 08 数据</td></tr>
+    <tr><td><b>文化/传统</b></td><td>书法家/非遗传承/茶人</td><td>文化味、留白意境</td><td>中</td><td>07 国风</td></tr>
+    <tr><td><b>内容/网红</b></td><td>UP主/主播/达人</td><td>吸粉、导流、记忆点</td><td>视流量而定</td><td>04 暗黑 / 01 数字人</td></tr>
+  </table>
+
+  <h2>2 / 十款风格设计方案</h2>
+  <p class="lead">每款都是一套「主题包」（换色板/字体/Hero 形态/动效），复用同一套底层骨架。编号即资产编号，便于销售时按号报价。</p>
+
+  <div class="grid2">
+    <div class="style-card">
+      <div class="no">STYLE 01 · 科技数字人</div>
+      <div class="nm">Hologram / 全息数字人</div>
+      <div class="who">适用：AI 创作者、开发者、创业者</div>
+      <div class="kv"><span>主视觉：</span>深空底 + 青色霓虹，常驻粒子背景</div>
+      <div class="kv"><span>核心交互：</span>3D 数字人开场（照片全息化/动漫生成）+ 打字机自我介绍 + 终端打字板</div>
+      <div class="kv"><span>技术：</span>Three.js 程序化建模、扫描线、光环粒子</div>
+      <div><span class="pill">旗舰款</span><span class="pill">差异化最强</span></div>
+    </div>
+
+    <div class="style-card">
+      <div class="no">STYLE 02 · 极简作品集</div>
+      <div class="nm">Minimal Portfolio</div>
+      <div class="who">适用：设计师、摄影师、插画师</div>
+      <div class="kv"><span>主视觉：</span>大留白 + 1 个强调色 + 网格基线</div>
+      <div class="kv"><span>核心交互：</span>瀑布流作品网格、悬停放大、滚动揭示</div>
+      <div class="kv"><span>技术：</span>纯 CSS Grid、IntersectionObserver</div>
+      <div><span class="pill">基础款</span><span class="pill">最快交付</span></div>
+    </div>
+
+    <div class="style-card">
+      <div class="no">STYLE 03 · 杂志编辑</div>
+      <div class="nm">Editorial / 杂志感</div>
+      <div class="who">适用：作家、记者、主编</div>
+      <div class="kv"><span>主视觉：</span>衬线大标题 + 分栏排版 + 纸张质感</div>
+      <div class="kv"><span>核心交互：</span>文章列表、章节式叙事、阅读进度条</div>
+      <div class="kv"><span>技术：</span>CSS 分栏、sticky 进度</div>
+      <div><span class="pill">标准款</span></div>
+    </div>
+
+    <div class="style-card">
+      <div class="no">STYLE 04 · 暗黑炫酷</div>
+      <div class="nm">Cyberpunk / 暗黑霓虹</div>
+      <div class="who">适用：音乐人、DJ、潮玩主理人</div>
+      <div class="kv"><span>主视觉：</span>纯黑 + 品红/紫渐变 + 故障感字体</div>
+      <div class="kv"><span>核心交互：</span>Glitch 标题、音频可视化条、视差滚动</div>
+      <div class="kv"><span>技术：</span>CSS 动画 + Web Audio API（可选）</div>
+      <div><span class="pill">标准款</span></div>
+    </div>
+
+    <div class="style-card">
+      <div class="no">STYLE 05 · 清新手作</div>
+      <div class="nm">Soft Handcraft</div>
+      <div class="who">适用：手作匠人、花艺、母婴博主</div>
+      <div class="kv"><span>主视觉：</span>奶白/淡彩 + 圆角 + 手绘元素</div>
+      <div class="kv"><span>核心交互：</span>轻飘入动画、圆润卡片、温暖文案</div>
+      <div class="kv"><span>技术：</span>SVG 手绘点缀、缓动动画</div>
+      <div><span class="pill">基础款</span></div>
+    </div>
+
+    <div class="style-card">
+      <div class="no">STYLE 06 · 商务精英</div>
+      <div class="nm">Corporate Elite</div>
+      <div class="who">适用：咨询师、高管、律师</div>
+      <div class="kv"><span>主视觉：</span>藏青 + 金线 + 克制排版</div>
+      <div class="kv"><span>核心交互：</span>资历时间线、数据背书、预约按钮</div>
+      <div class="kv"><span>技术：</span>稳重网格、微交互</div>
+      <div><span class="pill">标准款</span><span class="pill">高客单</span></div>
+    </div>
+
+    <div class="style-card">
+      <div class="no">STYLE 07 · 国风意境</div>
+      <div class="nm">Ink / 水墨国风</div>
+      <div class="who">适用：书法家、非遗传承、茶人</div>
+      <div class="kv"><span>主视觉：</span>宣纸底 + 墨色 + 朱印红</div>
+      <div class="kv"><span>核心交互：</span>卷轴展开、留白意境、印章落款</div>
+      <div class="kv"><span>技术：</span>SVG 笔触、CSS 遮罩展开</div>
+      <div><span class="pill">标准款</span></div>
+    </div>
+
+    <div class="style-card">
+      <div class="no">STYLE 08 · 数据仪表盘</div>
+      <div class="nm">Data Dashboard</div>
+      <div class="who">适用：分析师、开发者、操盘手</div>
+      <div class="kv"><span>主视觉：</span>暗色面板 + 图表卡 + 指标高亮</div>
+      <div class="kv"><span>核心交互：</span>数字滚动计数、技能雷达、图表动画</div>
+      <div class="kv"><span>技术：</span>Chart.js / 自绘 SVG、计数动画</div>
+      <div><span class="pill">标准款</span></div>
+    </div>
+
+    <div class="style-card">
+      <div class="no">STYLE 09 · 复古胶片</div>
+      <div class="nm">Retro Film</div>
+      <div class="who">适用：导演、摄影、 vintage 爱好者</div>
+      <div class="kv"><span>主视觉：</span>暖棕/胶片颗粒 + 漏光 + 衬线</div>
+      <div class="kv"><span>核心交互：</span>胶片翻页、颗粒滤镜、横向卷轴</div>
+      <div class="kv"><span>技术：</span>CSS 噪点、横向 scroll-snap</div>
+      <div><span class="pill">标准款</span></div>
+    </div>
+
+    <div class="style-card">
+      <div class="no">STYLE 10 · 动态插画</div>
+      <div class="nm">Dynamic Illustration</div>
+      <div class="who">适用：插画师、动画、儿童品牌</div>
+      <div class="kv"><span>主视觉：</span>明亮多色 + 手绘角色 + 浮动元素</div>
+      <div class="kv"><span>核心交互：</span>SVG/Lottie 动画、跟随鼠标浮动、场景化叙事</div>
+      <div class="kv"><span>技术：</span>Lottie、SVG 动画、轻量 GSAP</div>
+      <div><span class="pill">标准款</span></div>
+    </div>
+  </div>
+
+  <h2>3 / 技术架构与标准化（可复制的关键）</h2>
+  <div class="card">
+    <p class="lead">你之前是「一个站点手写一遍」。要接 10 款 + 持续接单，必须有<strong>骨架复用 + 主题切换</strong>机制，否则每单都从零写会亏死。</p>
+    <h3>3.1 目录资产库</h3>
+    <ul>
+      <li><b>/core</b>：共享骨架（base.css、nav、footer、滚动揭示、部署脚本）—— 一次写好，10 款复用。</li>
+      <li><b>/themes/01 ~ 10</b>：每款一个主题包，只含「差异部分」：<code>theme.css</code>（色板/字体/Hero 形态）、<code>hero.js</code>（可选动效，如 3D/粒子/Lottie）。</li>
+      <li><b>/content</b>：每个客户的 <code>profile.json</code>（姓名、定位、经历、作品、联系方式）—— 内容与样式解耦，换客户只填 JSON。</li>
+      <li><b>/modules</b>：可插拔模块——3D 数字人、终端打字、计数动画、二维码分享、作品网格。按需组合。</li>
+    </ul>
+    <h3>3.2 主题切换原理</h3>
+    <p class="lead">骨架读 <code>profile.json</code> 渲染内容，再按所选 <code>theme.css</code> 覆盖 CSS 变量（--bg / --accent / --font）。一套代码，10 张皮。</p>
+    <h3>3.3 已验证可直接复用的模块</h3>
+    <ul>
+      <li>3D 数字人（STYLE 01 核心，已跑通 Three.js CDN importmap）</li>
+      <li>粒子星座背景（鼠标连线，科技风通用）</li>
+      <li>终端打字板 / 数字计数 / 技能条（数据、科技风通用）</li>
+      <li>本地生成二维码（避坑：别用 qrcode CDN，已踩过 404）</li>
+    </ul>
+  </div>
+
+  <h2>4 / 标准开发流程（7 步）</h2>
+  <div class="step"><div class="b">1</div><div class="t"><b>需求采集</b><div>客户填表：职业、定位、风格偏好（给 10 款预览选 1）、素材（照片/简历/作品图）。</div></div></div>
+  <div class="step"><div class="b">2</div><div class="t"><b>选款与报价</b><div>按风格编号 + 模块组合出套餐价，签约收定金。</div></div></div>
+  <div class="step"><div class="b">3</div><div class="t"><b>内容填充</b><div>把客户资料写成 profile.json，套进对应主题骨架。</div></div></div>
+  <div class="step"><div class="b">4</div><div class="t"><b>风格微调</b><div>换色板/字体/动效强度，本地 server.js 预览确认。</div></div></div>
+  <div class="step"><div class="b">5</div><div class="t"><b>交互增强（可选）</b><div>按需加 3D 数字人 / 终端 / 计数等模块。</div></div></div>
+  <div class="step"><div class="b">6</div><div class="t"><b>部署上线</b><div>GitHub Pages（永久链接）或客户自有域名；生成分享海报 + 二维码。</div></div></div>
+  <div class="step"><div class="b">7</div><div class="t"><b>交付与维护</b><div>交源码 + 操作说明；年维护套餐可选（内容更新、续托管）。</div></div></div>
+
+  <h2>5 / 交付与部署体系</h2>
+  <div class="card">
+    <ul>
+      <li><b>托管</b>：统一用 GitHub Pages（你已跑通，免费、永久、可绑域名）。每人一个仓库或子目录。</li>
+      <li><b>避坑（来自你自己的教训）</b>：绝不用 CloudStudio 临时链接做交付二维码——会失效。GitHub Pages 永久链接才是正解。</li>
+      <li><b>分享物料</b>：每单附一张带二维码的分享海报（本地生成 qr.png，不依赖 CDN）。</li>
+      <li><b>客户自维护</b>：交付一份「改文字/换图」图文说明（只动 profile.json 和资源文件夹），降低售后成本。</li>
+    </ul>
+  </div>
+
+  <h2>6 / 套餐与定价（参考 2026 市场）</h2>
+  <table>
+    <tr><th>套餐</th><th>包含</th><th>交付周期</th><th>建议价</th></tr>
+    <tr><td><b>基础版</b></td><td>任选 STYLE 02/05 类极简风 + 内容填充 + 永久托管</td><td>2–3 天</td><td>¥999</td></tr>
+    <tr><td><b>标准版</b></td><td>10 款中任一款 + 动态交互（计数/打字/网格）+ 海报</td><td>4–6 天</td><td>¥1,999</td></tr>
+    <tr><td><b>旗舰版</b></td><td>含 3D 数字人（STYLE 01）+ 全套动效 + 定制调优</td><td>7–10 天</td><td>¥3,999</td></tr>
+    <tr><td><b>年维护</b></td><td>内容更新、续托管、小改版</td><td>按年</td><td>¥600/年</td></tr>
+  </table>
+  <p class="lead">定价逻辑：基础款走量获客，旗舰款（3D 数字人）拉高客单与口碑；你自己的站就是旗舰样例。</p>
+
+  <h2>7 / 十款开发排期（先建资产库，再接单）</h2>
+  <div class="card">
+    <h3>阶段 A：搭骨架（第 1–2 周）</h3>
+    <ul>
+      <li>抽出 /core 共享骨架与可插拔模块（把蔡少华站的可复用部分剥离出来）</li>
+      <li>定好 profile.json 字段规范与渲染逻辑</li>
+    </ul>
+    <h3>阶段 B：做 10 款主题包（第 3–6 周）</h3>
+    <ul>
+      <li>每周完成 2–3 款，先易后难（极简/手作/商务 → 国风/数据 → 3D数字人/插画/Lottie）</li>
+      <li>每款配套一张预览图 + 一句话卖点，作为销售货架</li>
+    </ul>
+    <h3>阶段 C：上线展示站（第 7 周）</h3>
+    <ul>
+      <li>做一个「风格展厅」页，10 款可切换预览，挂你永久链接下当获客入口</li>
+      <li>同步发公众号「人间句读」+ 朋友圈种草</li>
+    </ul>
+  </div>
+
+  <h2>8 / 风险与规避</h2>
+  <div class="warn">
+    <h3>⚠ 已知雷区（含你已踩过的）</h3>
+    <ul>
+      <li><b>交付链接失效</b>：只用 GitHub Pages 永久链接，绝不交付临时沙箱短链当二维码。</li>
+      <li><b>CDN 依赖翻车</b>：二维码库、动效库尽量本地化或锁定版本；qrcode CDN 曾 404，已改本地生成。</li>
+      <li><b>海报保存截断</b>：html2canvas 不支持 aspect-ratio，海报用显式 height。</li>
+      <li><b>每单从零写</b>：不建骨架资产库就会越做越亏——先投 2 周搭 /core。</li>
+      <li><b>售后无底洞</b>：交付时附「自维护说明」，把小改动成本转移给客户。</li>
+      <li><b>素材版权</b>：字体/插画用可商用或自绘，避免侵权纠纷。</li>
+    </ul>
+  </div>
+
+  <h2>9 / 起步建议（下一步）</h2>
+  <div class="card">
+    <ol>
+      <li><b>先把蔡少华站当成「旗舰样例 + 模板 01」</b>，剥离出 /core，这是 ROI 最高的一步。</li>
+      <li><b>做 1 张「风格货架」预览页</b>，挂你现有永久链接下，作为获客入口和销售工具。</li>
+      <li><b>挑 2–3 个朋友/熟人免费或低价做内测</b>，跑通流程、攒案例图。</li>
+      <li><b>公众号「人间句读」同步发一篇</b>「我做了 10 款个人主页风格」种草文，导流。</li>
+      <li><b>定价先按方案试水</b>，根据成交情况再调；旗舰款（3D 数字人）作为差异化招牌。</li>
+    </ol>
+  </div>
+
+  <footer>个人主页定制业务 · 开发策划方案 · 由 WorkBuddy 整理 · 2026</footer>
+</div>
+</body>
+</html>

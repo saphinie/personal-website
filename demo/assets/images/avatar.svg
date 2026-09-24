@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="683" viewBox="0 0 512 683">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0a1a2e"/>
+      <stop offset="1" stop-color="#06101e"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1aa6c4"/>
+      <stop offset="1" stop-color="#0e7b95"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="34%" r="60%">
+      <stop offset="0" stop-color="#35d6ff" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#35d6ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="512" height="683" fill="url(#bg)"/>
+  <rect width="512" height="683" fill="url(#glow)"/>
+
+  <!-- 肩部 / 上衣 -->
+  <path d="M96 683 C96 560 150 500 256 500 C362 500 416 560 416 683 Z" fill="url(#top)"/>
+  <path d="M236 500 L256 548 L276 500 Z" fill="#06101e" opacity="0.25"/>
+
+  <!-- 脖子 -->
+  <rect x="232" y="430" width="48" height="80" rx="22" fill="#e9c3a8"/>
+
+  <!-- 头部 -->
+  <ellipse cx="256" cy="300" rx="118" ry="138" fill="#f4cdb1"/>
+
+  <!-- 耳朵 -->
+  <ellipse cx="140" cy="305" rx="20" ry="30" fill="#f4cdb1"/>
+  <ellipse cx="372" cy="305" rx="20" ry="30" fill="#f4cdb1"/>
+
+  <!-- 头发 -->
+  <path d="M138 300 C138 170 186 120 256 120 C326 120 374 170 374 300
+           C374 250 350 214 320 206 C338 230 340 262 340 262
+           C330 222 300 200 256 200 C212 200 182 222 172 262
+           C172 262 174 230 192 206 C162 214 138 250 138 300 Z" fill="#1c2230"/>
+  <path d="M138 300 C138 250 150 220 168 206 C150 240 150 280 156 320
+           C146 320 140 312 138 300 Z" fill="#1c2230"/>
+  <path d="M374 300 C374 250 362 220 344 206 C362 240 362 280 356 320
+           C366 320 372 312 374 300 Z" fill="#1c2230"/>
+
+  <!-- 眉毛 -->
+  <rect x="196" y="276" width="46" height="9" rx="4" fill="#2a2f3a"/>
+  <rect x="270" y="276" width="46" height="9" rx="4" fill="#2a2f3a"/>
+
+  <!-- 眼睛 -->
+  <circle cx="219" cy="300" r="13" fill="#ffffff"/>
+  <circle cx="293" cy="300" r="13" fill="#ffffff"/>
+  <circle cx="221" cy="301" r="7" fill="#26323f"/>
+  <circle cx="295" cy="301" r="7" fill="#26323f"/>
+
+  <!-- 眼镜 -->
+  <g stroke="#35d6ff" stroke-width="5" fill="none" opacity="0.9">
+    <rect x="198" y="286" width="44" height="34" rx="12"/>
+    <rect x="270" y="286" width="44" height="34" rx="12"/>
+    <line x1="242" y1="300" x2="270" y2="300"/>
+  </g>
+
+  <!-- 鼻子 -->
+  <path d="M256 312 L246 350 L266 350 Z" fill="#e0b191" opacity="0.7"/>
+
+  <!-- 嘴 -->
+  <path d="M228 372 Q256 392 284 372" stroke="#c9695f" stroke-width="6" fill="none" stroke-linecap="round"/>
+
+  <!-- 胡茬点缀（轻微） -->
+  <path d="M196 330 Q256 372 316 330 Q300 360 256 364 Q212 360 196 330 Z" fill="#2a2f3a" opacity="0.10"/>
+
+  <!-- 全息扫描线（呼应数字人） -->
+  <g stroke="#9ff4ff" stroke-width="2" opacity="0.18">
+    <line x1="0" y1="180" x2="512" y2="180"/>
+    <line x1="0" y1="240" x2="512" y2="240"/>
+    <line x1="0" y1="300" x2="512" y2="300"/>
+    <line x1="0" y1="360" x2="512" y2="360"/>
+    <line x1="0" y1="420" x2="512" y2="420"/>
+  </g>
+</svg>
